@@ -1,0 +1,49 @@
+.list {
+	width: 282px;
+	background: #EBECF0;
+	padding: 12px;
+	border-radius: 10px;
+	box-sizing: border-box;
+	margin-right: 12px;
+	margin-bottom: 12px;
+	box-shadow: 2px 2px 8px rgb(0 0 0 / 20%);
+}
+
+.listTitle {
+	margin-top: 0;
+	font-size: 18px;	
+}
+
+.task {
+	background: #FFFFFF;
+	color: #000000;
+	font-size: 18px;
+	margin: 7px 0;
+	padding: 8px;
+	border-radius: 5px;
+}
+
+.task:hover {
+	text-decoration: underline;
+}
+
+.taskLink {
+	text-decoration: none;
+}
+
+.addButton {
+	background: none;
+	border: none;
+	appearance: none;
+	font-size: 18px;
+	color: #5E6C84;
+	margin-top: 15px;
+	cursor: pointer;
+}
+
+.addButton:hover {
+	background: #FFFFFF;
+	padding: 5px;
+	margin-top: 10px;
+	border-radius: 5px;
+}
