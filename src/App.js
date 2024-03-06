@@ -11,7 +11,7 @@ export default function App() {
 
 	const [tasks, setTasks] = useState(data)
 
-  return (
+	  return (
 		< div className='wrapper'>
 			<Router>
 				<Header />

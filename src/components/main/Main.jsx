@@ -15,7 +15,6 @@ const Main = props => {
 					<TaskDetail {...props} />
 				</Route>
 			</Switch>
-			
 		</main>
 	)
 }
