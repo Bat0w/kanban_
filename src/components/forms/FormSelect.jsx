@@ -11,8 +11,6 @@ const FormSelect = props => {
     const handleSubmit = e => {
         e.preventDefault()
     }
-
-    const ETasksStatus = tasks.filter(task => task.status === type)
     
     return (
         <form className={css.form} onSubmit={handleSubmit}>

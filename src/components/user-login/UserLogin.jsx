@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import Avatar from "../../images/user-avatar.jpg";
-import Arrow from "../../images/arrow-down.svg";
+import Arrow from "../../assets/arrow-down.svg";
 import "./UserLogin.css";
 
 function UserLogin (){

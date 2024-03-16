@@ -7,6 +7,7 @@ const Header = () => {
         <>
             <header className={css.header}>
                 <h1 className={css.title}>Awesome Kanban Board</h1>
+                <></>
                 <img className={css.avatar} src={Avatar} alt='' />
                 <div className={css.menu}></div>
             </header>
