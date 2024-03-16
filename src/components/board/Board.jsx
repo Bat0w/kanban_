@@ -5,7 +5,7 @@ import List from '../list/List'
 import css from './Board.module.css'
 
 const Board = props => {
-    const {tasks, setTasks, type} = props
+    const {tasks, setTasks} = props
 
     const addNewTask = (title, description) => {
         const newTask = {
@@ -28,19 +28,9 @@ const Board = props => {
                     
                     key={type} type={type} title={LIST_COPY[type]} tasks={listTasks} addNewTask={addNewTask} />
                 )
+                
             })
               }
-            {Object.values(LIST_TYPES).indexOf(type) > 0 && (
-                <select >
-                    <option>Select Task</option>
-                    {tasks
-                        .filter(task => Object.values(LIST_TYPES).indexOf(task.status) < Object.values(LIST_TYPES).indexOf(type))
-                        .map(task => (
-                            <option key={task.id} value={task.id}>{task.title}</option>
-                        ))}
-                </select>
-            )}
-            
         </div>
     )
 }
