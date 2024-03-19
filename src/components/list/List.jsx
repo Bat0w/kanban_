@@ -7,12 +7,18 @@ import FormSelect from '../forms/FormSelect'
 import css from './List.module.css'
 
 const List = props => {
-    const {title, type, tasks, addNewTask, setTasks} = props
+    const {title, type, tasks, addNewTask, setTasks, index, allTasks } = props
     const [isFormVisible, setFormVisible] = useState(false)
+    
 
     const handleClick = () => {
         setFormVisible(!isFormVisible)
-    }
+    };
+    const selectTasks = allTasks.filter(
+        (task) => task.status === Object.values(LIST_TYPES)[index]
+    );
+
+    
 
     return(
         <div className={css.list}>
@@ -31,8 +37,11 @@ const List = props => {
                 <FormAddNewCard addNewTask={addNewTask} setFormVisible={setFormVisible} />
             )}
             {type !== LIST_TYPES.BACKLOG && isFormVisible && (
-                <FormSelect setFormVisible={setFormVisible} type={type}
-				tasks = {tasks} setTasks={setTasks} />
+                <FormSelect 
+                setFormVisible={setFormVisible} 
+                type={type}
+				tasks = {selectTasks} 
+                setTasks={setTasks} />
             )}
         </div>
     )
