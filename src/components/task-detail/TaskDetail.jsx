@@ -1,42 +1,44 @@
 import React from "react";
+import { useState } from 'react'
 import { useRouteMatch, Link } from 'react-router-dom';
 import css from './TaskDetail.module.css'
 
 const TaskDetail = props => {
     const match = useRouteMatch()
     const {taskId} = match.params
-    const {tasks} = props
-
+    const {tasks, setTasks} = props
+    const [isEdit, setIsEdit] = useState(false);
     const task = tasks.find(task => task.id === taskId)
 
-    /*let edit = document.querySelectorAll('.btnEdit');
-    let text = document.querySelectorAll('.text');
-
-    for( let i = 0; i < edit.length; i++ ){
-    let editMode = false;
-  
-    edit[i].addEventListener('click', function(){
-    if( editMode ) {
-      this.textContent = "Edit";
-      text[i].removeAttribute('contentEditable');
+    let elem;
+    if (!isEdit) {
+      elem = <p className={css.text} onClick={(e) => setIsEdit(true)}>{task.description || 'This task has no description' }</p>
     } else {
-      this.textContent = "Ok";      
-      text[i].setAttribute('contentEditable', true);
-      text[i].focus();
+
+      elem = <textarea 
+		    className={css.textArea}
+		    name="description"
+			value={task.description}
+			onChange={event => setTasks(tasks.map(task => task.id === taskId ? {...task, [event.target.name]: event.target.value} : task
+			))}
+			onBlur={() => setIsEdit(false)}/>;
     }
-    
-    editMode = !editMode;
-  });
-}*/
+
+
     return (
         <div className={css.wrapper}>
         {task ? (
           <>
             <header className={css.header}>
                 <h2 className={css.title}>{task.title}</h2>
-                <Link to='/' className={css.homeLink}>&#10006;</Link>
+                <Link to='/' className={css.homeLink} >&#10006;</Link>
             </header>
-            <p contenteditable="true" className={css.text}>{task.description || 'This task has no description'}</p>
+            <p 
+             
+            className={css.text}              
+             >
+              Description: {elem}
+              </p>
           </>
         ) : (
           <header className={css.header}>

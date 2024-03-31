@@ -30,13 +30,12 @@ const Board = props => {
                     index={index - 1}
                     title={LIST_COPY[type]}
                     allTasks={tasks} 
-                    tasks={listTasks} 
+                    tasks={listTasks || []} 
                     addNewTask={addNewTask}
                     setTasks={setTasks} />
                 )
-                
             })
-              }
+            }
         </div>
     )
 }

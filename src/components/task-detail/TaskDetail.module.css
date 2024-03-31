@@ -88,3 +88,8 @@
     box-shadow: none;
     outline: none;
 }
+
+.textArea {
+	margin-left: 10px;
+	width: 100%;
+}

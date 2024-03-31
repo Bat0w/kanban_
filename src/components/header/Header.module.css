@@ -3,18 +3,12 @@
 	color: #FFFFFF;
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 	padding: 0 20px;
+	width: 100%;
 }
+
 
 .title{
     font-size: 28px;
 }
-
-.avatar{
-	background-color: #FFFFFF;
-	border-radius: 20px;
-	size: 40px;
-	margin-left: auto;
-}
-
-.menu{}

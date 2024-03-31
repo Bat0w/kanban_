@@ -3,7 +3,7 @@ import { useState } from "react";
 import css from './Form.module.css'
 
 const FormAddNewCard = props => {
-    const {addNewTask, setFormVisible} = props
+    const { formSubmit } = props;
     const [values, setValues] = useState({
         title: ''
     })
@@ -13,13 +13,12 @@ const FormAddNewCard = props => {
         setValues({...values, [fieldName]: e.target.value})
     }
 
-    const handleSubmit = e => {
-        e.preventDefault()
+    const handleSubmit = (e) => {
+        e.preventDefault();
         if (values.title) {
-            addNewTask(values.title)
+          formSubmit(values.title, values.description);
         }
-        setFormVisible(false)
-    }
+    };
     
     return (
         <form className={css.form} onSubmit={handleSubmit}>
@@ -32,9 +31,12 @@ const FormAddNewCard = props => {
             value={values.title}
             onChange={handleChange} 
             />
-            <button className={css.submit} type='submit'>Submit</button>
+            {values.title ? (
+                <button className={css.submit} type="submit">Submit</button>
+            ) : (
+                <button className={css.submit} disabled="disabled" type="submit" style={{cursor: "default"}, {background: "#0079BF"}}>Submit</button>
+            )}
         </form>
-        
     )
 }
 

@@ -1,12 +1,19 @@
 import React from 'react'
-//import {LIST_TYPES, LIST_COPY} from '../../config'
 import css from './Footer.module.css'
 
-const Footer = () => {
-	
+const Footer = props => {
+	const {tasks} = props
+	const activeTaskCount = tasks.filter((task) => task.status !== 'finished');
+  const finishedTaskCount = tasks.filter((task) => task.status === 'finished');
 	return (
 		<footer className={css.footer}>
-			
+			<div className={css.counts}>
+				<>
+					<p className={css.count}>Active tasks: &lt; {activeTaskCount.length}&gt;</p>
+					<p className={css.count}>FinishedTask: &lt;{finishedTaskCount.length}&gt;</p>
+				</>
+			</div>
+			<div className={css.copy}>Kanban Board by Svetlana Andriushkina, 2024</div>
 		</footer>
 	)
 }
